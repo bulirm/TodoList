@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:TodoList.ViewModels"
+             x:Class="TodoList.Views.NotePage">
+    <ContentPage.BindingContext>
+        <viewModels:NoteListViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Placeholder="Title"/>
+            <Entry Placeholder="Desctiption"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Margin="10" Text="Cancel"/>
+                <Button Grid.Row="0" Margin="10" Text="Save"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
