@@ -2,6 +2,8 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using TodoList.Views;
+
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace TodoList
 {
@@ -11,7 +13,7 @@ namespace TodoList
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NoteListPage();
         }
 
         protected override void OnStart()

@@ -29,7 +29,7 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <Button Text="New"/>
+            <Button Grid.Row="1" Grid.Column="1" Text="New" Command="{Binding NewNoteCommand}"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
