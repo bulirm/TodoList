@@ -13,7 +13,7 @@ namespace TodoList
         {
             InitializeComponent();
 
-            MainPage = new NoteListPage();
+            MainPage = new NavigationPage(new NoteListPage());
         }
 
         protected override void OnStart()

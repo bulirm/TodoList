@@ -33,9 +33,9 @@ namespace TodoList.ViewModels
 
         public Command NewNoteCommand { get; private set; }
 
-        private void NewNoteCommand_Execute()
+        private async void NewNoteCommand_Execute()
         {
-            App.Current.MainPage = new NotePage();
+            await App.Current.MainPage.Navigation.PushAsync(new NotePage());
         }
 
         #endregion commands

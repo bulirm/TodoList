@@ -34,15 +34,23 @@ namespace TodoList.ViewModels
         public NoteViewModel()
         {
             CancelCommand = new Command(CancelCommand_Execute);
+            SaveCommand = new Command(SaveCommand_Execute);
         }
 
         #region commands
 
         public Command CancelCommand { get; private set; }
 
-        private void CancelCommand_Execute()
+        private async void CancelCommand_Execute()
         {
-            App.Current.MainPage = new NoteListPage();
+            await App.Current.MainPage.Navigation.PopAsync();
+        }
+
+        public Command SaveCommand { get; private set; }
+
+        private void SaveCommand_Execute()
+        {
+            
         }
 
         #endregion commands
