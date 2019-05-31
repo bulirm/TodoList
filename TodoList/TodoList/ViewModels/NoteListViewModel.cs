@@ -17,7 +17,7 @@ namespace TodoList.ViewModels
         #region Properties
         
         /*
-        public List<NoteListItemViewModel> NoteViewModels
+        public List<NoteListItemViewModel> NoteListItemViewModels
         {
             get
             {
@@ -51,7 +51,7 @@ namespace TodoList.ViewModels
 
         public void OnAppearing()
         {
-            OnPropertyChanged("NoteViewModels");
+            OnPropertyChanged("NoteListItemViewModels");
         }
 
         #endregion Methods

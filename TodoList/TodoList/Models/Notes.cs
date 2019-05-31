@@ -12,7 +12,7 @@ namespace TodoList.Models
         {
             get { return notes; }
         }
-
+        
         public void Add(Note note)
         {
             notes.Add(note);
