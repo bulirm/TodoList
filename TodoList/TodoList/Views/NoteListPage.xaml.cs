@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using TodoList.ViewModels;
+
 namespace TodoList.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -15,6 +17,12 @@ namespace TodoList.Views
         public NoteListPage()
         {
             InitializeComponent();
+        }
+
+        private void ContentPage_Appearing(object sender, EventArgs e)
+        {
+            NoteListViewModel noteListViewModel = (NoteListViewModel)BindingContext;
+            noteListViewModel.OnAppearing();
         }
     }
 }

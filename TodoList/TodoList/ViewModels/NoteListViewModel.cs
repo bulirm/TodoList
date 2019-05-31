@@ -1,43 +1,59 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 using Xamarin.Forms;
 
-using TodoList.Views;
-
 using TodoList.ViewModels.Abstract;
+using TodoList.ViewModels.ItemViewModels;
+using TodoList.Views;
+using TodoList.Models;
 
 namespace TodoList.ViewModels
 {
     class NoteListViewModel: ViewModel
     {
-        #region properties
-
-        private List<NoteViewModel> noteViewModels;
-
-        public List<NoteViewModel> NoteViewModels
+        #region Properties
+        
+        /*
+        public List<NoteListItemViewModel> NoteViewModels
         {
-            get { return noteViewModels; }
-            set { noteViewModels = value; OnPropertyChanged(); }
-        }
+            get
+            {
+                //List<NoteListItemViewModel> noteListItemViewModels = new List<NoteListItemViewModel>();
 
-        #endregion properties
+            }
+        }
+        */
+
+        #endregion Properties
 
         public NoteListViewModel()
         {
             NewNoteCommand = new Command(NewNoteCommand_Execute);
         }
 
-        #region commands
+        #region Commands
 
         public Command NewNoteCommand { get; private set; }
 
         private async void NewNoteCommand_Execute()
         {
-            await App.Current.MainPage.Navigation.PushAsync(new NotePage());
+            NotePage notePage = new NotePage();
+            await App.Current.MainPage.Navigation.PushAsync(notePage);
+        }
+        
+
+        #endregion Commands
+
+        #region Methods
+
+        public void OnAppearing()
+        {
+            OnPropertyChanged("NoteViewModels");
         }
 
-        #endregion commands
+        #endregion Methods
     }
 }

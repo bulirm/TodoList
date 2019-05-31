@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:TodoList.ViewModels"
-             x:Class="TodoList.Views.NoteListPage">
+             x:Class="TodoList.Views.NoteListPage"
+             Appearing="ContentPage_Appearing">
     <ContentPage.BindingContext>
         <viewModels:NoteListViewModel/>
     </ContentPage.BindingContext>

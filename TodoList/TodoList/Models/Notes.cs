@@ -4,8 +4,18 @@ using System.Text;
 
 namespace TodoList.Models
 {
-    class Notes
+    public class Notes
     {
-        //private 
+        private List<Note> notes;
+
+        public IEnumerable<Note> All
+        {
+            get { return notes; }
+        }
+
+        public void Add(Note note)
+        {
+            notes.Add(note);
+        }
     }
 }

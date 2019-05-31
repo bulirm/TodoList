@@ -6,12 +6,19 @@ using Xamarin.Forms;
 
 using TodoList.ViewModels.Abstract;
 using TodoList.Views;
+using TodoList.Models;
 
 namespace TodoList.ViewModels
 {
     class NoteViewModel: ViewModel
     {
-        #region properties
+        #region Fields
+
+
+
+        #endregion Fields
+
+        #region Properties
 
         private string title;
 
@@ -29,7 +36,7 @@ namespace TodoList.ViewModels
             set { description = value; OnPropertyChanged(); }
         }
 
-        #endregion properties
+        #endregion Properties
 
         public NoteViewModel()
         {
@@ -37,7 +44,7 @@ namespace TodoList.ViewModels
             SaveCommand = new Command(SaveCommand_Execute);
         }
 
-        #region commands
+        #region Commands
 
         public Command CancelCommand { get; private set; }
 
@@ -53,6 +60,6 @@ namespace TodoList.ViewModels
             
         }
 
-        #endregion commands
+        #endregion Commands
     }
 }
