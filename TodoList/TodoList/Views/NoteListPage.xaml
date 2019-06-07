@@ -13,12 +13,12 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <ListView HasUnevenRows="True" CachingStrategy="RecycleElement"  ItemsSource="{Binding NoteListItemViewModels}">
+                <ListView HasUnevenRows="True" CachingStrategy="RecycleElement" ItemsSource="{Binding NoteListItemViewModels}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <ViewCell.ContextActions>
-                                    <MenuItem Command="{Binding DisplayCommand}" CommandParameter="{Binding .}"/>
+                                    <MenuItem Command="{Binding DisplayCommand}"/>
                                 </ViewCell.ContextActions>
                                 <StackLayout Margin="16">
                                     <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="Medium"/>
