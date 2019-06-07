@@ -14,23 +14,34 @@ namespace TodoList.ViewModels
 {
     class NoteListViewModel: ViewModel
     {
+        #region Fields
+
+        private NotesContainer notesContainer;
+
+        #endregion Fields
+
         #region Properties
+
         
-        /*
         public List<NoteListItemViewModel> NoteListItemViewModels
         {
             get
             {
-                //List<NoteListItemViewModel> noteListItemViewModels = new List<NoteListItemViewModel>();
-
+                List<NoteListItemViewModel> noteListItemViewModels = new List<NoteListItemViewModel>();
+                foreach (Note note in notesContainer.Notes)
+                {
+                    NoteListItemViewModel noteListItemViewModel = new NoteListItemViewModel(note);
+                    noteListItemViewModels.Add(noteListItemViewModel);
+                }
+                return noteListItemViewModels;
             }
         }
-        */
 
         #endregion Properties
 
         public NoteListViewModel()
         {
+            notesContainer = new NotesContainer();
             NewNoteCommand = new Command(NewNoteCommand_Execute);
         }
 
@@ -48,11 +59,6 @@ namespace TodoList.ViewModels
         #endregion Commands
 
         #region Methods
-
-        public void OnAppearing()
-        {
-            OnPropertyChanged("NoteListItemViewModels");
-        }
 
         #endregion Methods
     }

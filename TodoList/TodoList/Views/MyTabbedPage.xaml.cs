@@ -7,14 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-using TodoList.ViewModels;
-
 namespace TodoList.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class NoteListPage : ContentPage
+    public partial class MyTabbedPage : Xamarin.Forms.TabbedPage
     {
-        public NoteListPage()
+        public MyTabbedPage ()
         {
             InitializeComponent();
         }

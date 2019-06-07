@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage Title="Unfinished" Icon="baseline_format_list_bulleted_white_18dp.png"
+             xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:TodoList.ViewModels"
-             x:Class="TodoList.Views.NoteListPage"
-             Appearing="ContentPage_Appearing">
+             x:Class="TodoList.Views.NoteListPage">
     <ContentPage.BindingContext>
         <viewModels:NoteListViewModel/>
     </ContentPage.BindingContext>
@@ -18,7 +18,7 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <ListView Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" ItemsSource="{Binding NoteListItemViewModels}">
+            <ListView Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" HasUnevenRows="True" CachingStrategy="RecycleElement"  ItemsSource="{Binding NoteListItemViewModels}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
