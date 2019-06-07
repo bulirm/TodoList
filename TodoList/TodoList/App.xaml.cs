@@ -22,13 +22,6 @@ namespace TodoList
             TabbedPage myTabbedPage = new MyTabbedPage();
             MainPage = myTabbedPage;
         }
-        ~App()
-        {
-            Task.Run(async () =>
-            {
-                await NotesContainer.Destroy();
-            }).Wait();
-        }
 
         protected override async void OnStart()
         {

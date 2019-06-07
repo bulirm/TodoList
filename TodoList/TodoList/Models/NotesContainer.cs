@@ -12,8 +12,10 @@ namespace TodoList.Models
     {
         private static NotesDB notesDB;
 
-        private static List<Note> done;
-        private static List<Note> undone;
+        public static event EventHandler OnChanged;
+
+        private static List<Note> done = new List<Note>();
+        private static List<Note> undone = new List<Note>();
 
         public static IEnumerable<Note> Done
         {
@@ -38,14 +40,15 @@ namespace TodoList.Models
             done = await notesDB.GetNotesDoneAsync();
             undone = await notesDB.GetNotesNotDoneAsync();
         }
-
-        public static async Task Destroy()
+        
+        public static void AddNote(Note note)
         {
-            List<Note> all = new List<Note>();
-            all.AddRange(done);
-            all.AddRange(undone);
-
-            await notesDB.SaveAllNotesAsync(all);
+            Task.Run(async () =>
+            {
+                await notesDB.SaveNoteAsync(note);
+            });
+            undone.Add(note);
+            OnChanged?.Invoke(note, new EventArgs());
         }
     } 
 }

@@ -9,10 +9,10 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <Entry Placeholder="Title"/>
-            <Editor Placeholder="Description" Keyboard="Chat" AutoSize="TextChanges"/>
+            <Entry Placeholder="Title" Text="{Binding Title}"/>
+            <Editor Placeholder="Description" Keyboard="Chat" AutoSize="TextChanges" Text="{Binding Description}"/>
             <Grid>
-                <Button Margin="10" Text="Save"/>
+                <Button Margin="10" Text="Save" Command="{Binding SaveCommand}"/>
             </Grid>
         </StackLayout>
     </ContentPage.Content>

@@ -39,15 +39,16 @@ namespace TodoList.Models
             return database.QueryAsync<Note>("SELECT * FROM [Note] WHERE [Done] = 0");
         }
 
-        public async Task SaveAllNotesAsync(List<Note> notes)
+        public Task<int> SaveNoteAsync(Note note)
         {
-            await DeleteAllNotesAsync();
-            await database.InsertAllAsync(notes);
-        }
-
-        private Task<int> DeleteAllNotesAsync()
-        {
-            return database.DeleteAllAsync<Note>();
+            if (note.ID != 0)
+            {
+                return database.UpdateAsync(note);
+            }
+            else
+            {
+                return database.InsertAsync(note);
+            }
         }
     }
 }

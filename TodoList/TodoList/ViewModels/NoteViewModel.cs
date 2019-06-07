@@ -50,7 +50,13 @@ namespace TodoList.ViewModels
 
         private void SaveCommand_Execute()
         {
-            
+            Note note = new Note();
+            note.Title = Title;
+            note.Description = Description;
+            note.Done = false;
+            Title = "";
+            Description = "";
+            NotesContainer.AddNote(note);
         }
 
         #endregion Commands

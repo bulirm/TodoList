@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Text;
 
 using Xamarin.Forms;
@@ -16,7 +17,6 @@ namespace TodoList.ViewModels
     {
 
         #region Properties
-
         
         public List<NoteListItemViewModel> NoteListItemViewModels
         {
@@ -36,7 +36,7 @@ namespace TodoList.ViewModels
 
         public NoteListViewModel()
         {
-
+            NotesContainer.OnChanged += OnNoteAdded;
         }
 
         #region Commands
@@ -45,6 +45,11 @@ namespace TodoList.ViewModels
         #endregion Commands
 
         #region Methods
+
+        private void OnNoteAdded(object sender, EventArgs e)
+        {
+            OnPropertyChanged("NoteListItemViewModels");
+        }
 
         #endregion Methods
     }
