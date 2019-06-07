@@ -37,10 +37,17 @@ namespace TodoList.ViewModels
         public NoteListViewModel()
         {
             NotesContainer.OnChanged += OnNoteAdded;
+            DisplayCommand = new Command<object>(DisplayCommand_Execute);
         }
 
         #region Commands
         
+        public Command<object> DisplayCommand { get; set; }
+
+        private void DisplayCommand_Execute(object parameter)
+        {
+            Debug.WriteLine("");
+        }
 
         #endregion Commands
 
