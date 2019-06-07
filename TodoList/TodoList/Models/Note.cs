@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,14 +7,14 @@ namespace TodoList.Models
 {
     public class Note
     {
-        public string Title { get; private set; }
+        [PrimaryKey, AutoIncrement]
+        public int ID { get; set; }
 
-        public string Description { get; private set; }
+        public string Title { get; set; }
 
-        public Note(string title, string description)
-        {
-            Title = title;
-            Description = description;
-        }
+        public string Description { get; set; }
+
+        public bool Done { get; set; }
+
     }
 }

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage Title="Unfinished" Icon="baseline_format_list_bulleted_white_18dp.png"
+<ContentPage Title="Undone" Icon="baseline_format_list_bulleted_white_18dp.png"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:TodoList.ViewModels"
@@ -9,16 +9,7 @@
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-
-            <ListView Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2" HasUnevenRows="True" CachingStrategy="RecycleElement"  ItemsSource="{Binding NoteListItemViewModels}">
+            <ListView HasUnevenRows="True" CachingStrategy="RecycleElement"  ItemsSource="{Binding NoteListItemViewModels}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -29,8 +20,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
-            <Button Grid.Row="1" Grid.Column="1" Text="New" Command="{Binding NewNoteCommand}"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

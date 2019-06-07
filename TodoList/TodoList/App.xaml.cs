@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Threading.Tasks;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using TodoList.Views;
+using TodoList.Models;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace TodoList
@@ -19,10 +22,17 @@ namespace TodoList
             TabbedPage myTabbedPage = new MyTabbedPage();
             MainPage = myTabbedPage;
         }
-
-        protected override void OnStart()
+        ~App()
         {
-            // Handle when your app starts
+            Task.Run(async () =>
+            {
+                await NotesContainer.Destroy();
+            }).Wait();
+        }
+
+        protected override async void OnStart()
+        {
+            await NotesContainer.Initialize();
         }
 
         protected override void OnSleep()

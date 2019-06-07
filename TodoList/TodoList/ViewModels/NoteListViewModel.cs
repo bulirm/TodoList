@@ -14,11 +14,6 @@ namespace TodoList.ViewModels
 {
     class NoteListViewModel: ViewModel
     {
-        #region Fields
-
-        private NotesContainer notesContainer;
-
-        #endregion Fields
 
         #region Properties
 
@@ -28,7 +23,7 @@ namespace TodoList.ViewModels
             get
             {
                 List<NoteListItemViewModel> noteListItemViewModels = new List<NoteListItemViewModel>();
-                foreach (Note note in notesContainer.Notes)
+                foreach (Note note in NotesContainer.Undone)
                 {
                     NoteListItemViewModel noteListItemViewModel = new NoteListItemViewModel(note);
                     noteListItemViewModels.Add(noteListItemViewModel);
@@ -41,19 +36,10 @@ namespace TodoList.ViewModels
 
         public NoteListViewModel()
         {
-            notesContainer = new NotesContainer();
-            NewNoteCommand = new Command(NewNoteCommand_Execute);
+
         }
 
         #region Commands
-
-        public Command NewNoteCommand { get; private set; }
-
-        private async void NewNoteCommand_Execute()
-        {
-            NotePage notePage = new NotePage();
-            await App.Current.MainPage.Navigation.PushAsync(notePage);
-        }
         
 
         #endregion Commands

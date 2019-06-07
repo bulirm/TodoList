@@ -12,12 +12,7 @@
             <Entry Placeholder="Title"/>
             <Editor Placeholder="Description" Keyboard="Chat" AutoSize="TextChanges"/>
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Margin="10" Text="Cancel" Command="{Binding CancelCommand}"/>
-                <Button Grid.Column="1" Margin="10" Text="Save"/>
+                <Button Margin="10" Text="Save"/>
             </Grid>
         </StackLayout>
     </ContentPage.Content>

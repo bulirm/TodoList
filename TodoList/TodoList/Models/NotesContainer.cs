@@ -1,29 +1,51 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
 using System.Text;
+
+using SQLite;
 
 namespace TodoList.Models
 {
-    public class NotesContainer
+    public static class NotesContainer
     {
-        private List<Note> notes;
+        private static NotesDB notesDB;
 
-        public IEnumerable<Note> Notes
+        private static List<Note> done;
+        private static List<Note> undone;
+
+        public static IEnumerable<Note> Done
         {
             get
             {
-                return notes;
+                return done;
             }
         }
 
-        public NotesContainer()
+        public static IEnumerable<Note> Undone
         {
-            notes = new List<Note>()
+            get
             {
-                new Note("title1", "description1"),
-                new Note("title2", "description2"),
-                new Note("title3", "description3")
-            };
+                return undone;
+            }
         }
-    }
+        
+        public static async Task Initialize()
+        {
+            notesDB = new NotesDB();
+
+            done = await notesDB.GetNotesDoneAsync();
+            undone = await notesDB.GetNotesNotDoneAsync();
+        }
+
+        public static async Task Destroy()
+        {
+            List<Note> all = new List<Note>();
+            all.AddRange(done);
+            all.AddRange(undone);
+
+            await notesDB.SaveAllNotesAsync(all);
+        }
+    } 
 }
