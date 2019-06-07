@@ -39,6 +39,8 @@ namespace TodoList.Models
 
             done = await notesDB.GetNotesDoneAsync();
             undone = await notesDB.GetNotesNotDoneAsync();
+
+            Change();
         }
         
         public static void AddNote(Note note)
@@ -48,7 +50,12 @@ namespace TodoList.Models
                 await notesDB.SaveNoteAsync(note);
             });
             undone.Add(note);
-            OnChanged?.Invoke(note, new EventArgs());
+            Change();
+        }
+
+        private static void Change()
+        {
+            OnChanged?.Invoke(new object(), new EventArgs());
         }
     } 
 }

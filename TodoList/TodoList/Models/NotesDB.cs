@@ -50,5 +50,10 @@ namespace TodoList.Models
                 return database.InsertAsync(note);
             }
         }
+
+        public Task<int> DeleteNote(Note note)
+        {
+            return database.DeleteAsync<Note>(note);
+        }
     }
 }
