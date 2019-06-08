@@ -1,6 +1,6 @@
 # TodoList
 ## Basic Info
-* Author: Martin Bulíø
+* Author: Martin BulÃ­Å™
 * Programming language: C# Xamarin
 * IDE: Visual Studio 2017
 * Platform: Google Android
