@@ -12,6 +12,12 @@
             <Setter Property="BackgroundColor" Value="Black"/>
             <Setter Property="TextColor" Value="White"/>
         </Style>
+        <Style TargetType="Entry">
+            <Setter Property="PlaceholderColor" Value="Gray"/>
+        </Style>
+        <Style TargetType="Editor">
+            <Setter Property="PlaceholderColor" Value="Gray"/>
+        </Style>
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>

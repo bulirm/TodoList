@@ -41,7 +41,12 @@ namespace TodoList.ViewModels
 
         public NoteViewModel()
         {
+            //init commands
             SaveCommand = new Command(SaveCommand_Execute);
+
+            //init props
+            Title = "";
+            Description = "";
         }
 
         #region Commands
@@ -54,6 +59,11 @@ namespace TodoList.ViewModels
         /// </summary>
         private void SaveCommand_Execute()
         {
+            if (Title == "")
+            {
+                App.Current.MainPage.DisplayAlert("Input issue", "Title must not be empty!", "Ok");
+                return;
+            }
             Note note = new Note();
             note.Title = Title;
             note.Description = Description;
