@@ -40,7 +40,7 @@
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" Text="Deadline:"/>
-                <DatePicker Grid.Column="1" IsEnabled="{Binding DeadlineEnable}" MinimumDate="{Binding MinDeadlinem, Mode=OneWay}"  Date="{Binding Deadline}" VerticalOptions="Center" HorizontalOptions="Center"/>
+                <DatePicker Grid.Column="1" IsEnabled="{Binding DeadlineEnable}" MinimumDate="{Binding MinDeadline, Mode=OneWay}"  Date="{Binding Deadline}" VerticalOptions="Center" HorizontalOptions="Center"/>
                 <Switch Grid.Column="2" HeightRequest="5" IsToggled="{Binding DeadlineEnable}" WidthRequest="10" OnColor="Black" />
             </Grid>
             <Grid>

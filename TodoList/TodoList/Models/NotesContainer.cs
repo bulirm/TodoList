@@ -32,6 +32,14 @@ namespace TodoList.Models
             }
         }
 
+        public static IEnumerable<Note> DoneOrdered
+        {
+            get
+            {
+                return done.Select(note => note).Reverse();
+            }
+        }
+
         public static IEnumerable<Note> Undone
         {
             get
