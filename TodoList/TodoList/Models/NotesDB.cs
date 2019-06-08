@@ -9,6 +9,9 @@ using TodoList.Models;
 
 namespace TodoList.Models
 {
+    /// <summary>
+    /// Notes database class provides access to database and manages operation with database.
+    /// </summary>
     class NotesDB
     {
         private SQLiteAsyncConnection database;

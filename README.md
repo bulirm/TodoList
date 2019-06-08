@@ -1,3 +1,7 @@
 School project created by Martin Bulíø
 
-Mobile app: todo list/event planner
+Mobile app: Todo list
+
+
+
+Description:

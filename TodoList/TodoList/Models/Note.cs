@@ -5,6 +5,9 @@ using System.Text;
 
 namespace TodoList.Models
 {
+    /// <summary>
+    /// Note model class which stores data about single note.
+    /// </summary>
     public class Note
     {
         [PrimaryKey, AutoIncrement]

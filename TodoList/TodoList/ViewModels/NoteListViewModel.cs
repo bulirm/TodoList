@@ -13,18 +13,26 @@ using TodoList.Models;
 
 namespace TodoList.ViewModels
 {
+    /// <summary>
+    /// Provides lists of data in models.
+    /// </summary>
     class NoteListViewModel: ViewModel
     {
 
         #region Properties
         
+        /// <summary>
+        /// List of ItemViewModels holdin note models which done property is false.
+        /// </summary>
         public List<NoteListItemViewModel> NoteUndoneListItemViewModels
         {
             get
             {
+                //create new list
                 List<NoteListItemViewModel> noteListItemViewModels = new List<NoteListItemViewModel>();
                 foreach (Note note in NotesContainer.Undone)
                 {
+                    //create and add viewmodel with model of note
                     NoteListItemViewModel noteListItemViewModel = new NoteListItemViewModel(note);
                     noteListItemViewModels.Add(noteListItemViewModel);
                 }
@@ -32,13 +40,18 @@ namespace TodoList.ViewModels
             }
         }
 
+        /// <summary>
+        /// List of ItemViewModels holdin note models which done property is true.
+        /// </summary>
         public List<NoteListItemViewModel> NoteDoneListItemViewModels
         {
             get
             {
+                //create new list
                 List<NoteListItemViewModel> noteListItemViewModels = new List<NoteListItemViewModel>();
                 foreach (Note note in NotesContainer.Done)
                 {
+                    //create and add viewmodel with model of note
                     NoteListItemViewModel noteListItemViewModel = new NoteListItemViewModel(note);
                     noteListItemViewModels.Add(noteListItemViewModel);
                 }
@@ -55,6 +68,11 @@ namespace TodoList.ViewModels
 
         #region Methods
 
+        /// <summary>
+        /// Make viewlists update data.
+        /// </summary>
+        /// <param name="sender">event sender</param>
+        /// <param name="e">event parameters</param>
         private void OnNoteAdded(object sender, EventArgs e)
         {
             OnPropertyChanged("NoteUndoneListItemViewModels");

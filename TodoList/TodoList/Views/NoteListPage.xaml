@@ -7,6 +7,12 @@
     <ContentPage.BindingContext>
         <viewModels:NoteListViewModel/>
     </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="Black"/>
+            <Setter Property="TextColor" Value="White"/>
+        </Style>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <ListView HasUnevenRows="True" SelectionMode="None" CachingStrategy="RecycleElement" ItemsSource="{Binding NoteUndoneListItemViewModels}">
             <ListView.ItemTemplate>

@@ -15,16 +15,14 @@ namespace TodoList
         public App()
         {
             InitializeComponent();
-
-
-            //MainPage = new NavigationPage(new NoteListPage());
-
+            
             TabbedPage myTabbedPage = new MyTabbedPage();
             MainPage = myTabbedPage;
         }
 
         protected override async void OnStart()
         {
+            //Must initialize data when app starts
             await NotesContainer.Initialize();
         }
 

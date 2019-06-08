@@ -12,16 +12,14 @@ namespace TodoList.ViewModels
 {
     class NoteViewModel: ViewModel
     {
-        #region Fields
-
-
-
-        #endregion Fields
 
         #region Properties
 
         private string title;
 
+        /// <summary>
+        /// Title of note
+        /// </summary>
         public string Title
         {
             get { return title; }
@@ -30,6 +28,9 @@ namespace TodoList.ViewModels
 
         private string description;
 
+        /// <summary>
+        /// Description of note
+        /// </summary>
         public string Description
         {
             get { return description; }
@@ -48,6 +49,9 @@ namespace TodoList.ViewModels
 
         public Command SaveCommand { get; private set; }
 
+        /// <summary>
+        /// Save note with data in view-model properties
+        /// </summary>
         private void SaveCommand_Execute()
         {
             Note note = new Note();
