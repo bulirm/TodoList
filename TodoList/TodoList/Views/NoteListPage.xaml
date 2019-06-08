@@ -2,12 +2,16 @@
 <ContentPage Title="Undone" Icon="baseline_format_list_bulleted_white_18dp.png"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:conveters="clr-namespace:TodoList.Converters"
              xmlns:viewModels="clr-namespace:TodoList.ViewModels"
              x:Class="TodoList.Views.NoteListPage">
     <ContentPage.BindingContext>
         <viewModels:NoteListViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Resources>
+        <ResourceDictionary>
+            <conveters:DateToStringConverter x:Key="dateToString"/>
+        </ResourceDictionary>
         <Style TargetType="Button">
             <Setter Property="BackgroundColor" Value="Black"/>
             <Setter Property="TextColor" Value="White"/>
@@ -26,9 +30,10 @@
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="2*"/>
                             </Grid.ColumnDefinitions>
                             <Label Grid.Row="0" Grid.Column="0" Text="{Binding Title}" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium"/>
+                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding DeadLine, Converter={StaticResource dateToString}}" HorizontalTextAlignment="End"/>
                             <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Description}"/>
                             <Button Grid.Row="2" Grid.Column="1" Text="Mark as done" Command="{Binding MarkAsDoneCommand}"/>
                             <Button Grid.Row="2" Grid.Column="0" Text="Delete" Command="{Binding DeleteCommand}"/>

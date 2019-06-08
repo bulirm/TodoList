@@ -42,6 +42,14 @@ namespace TodoList.ViewModels.ItemViewModels
             get { return note.Description; }
         }
 
+        /// <summary>
+        /// Deadline of note
+        /// </summary>
+        public DateTime? DeadLine
+        {
+            get { return note.Deadline; }
+        }
+
         #endregion Properties
 
         public NoteListItemViewModel(Note note)

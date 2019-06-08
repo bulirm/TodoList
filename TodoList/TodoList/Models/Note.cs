@@ -19,5 +19,6 @@ namespace TodoList.Models
 
         public bool Done { get; set; }
 
+        public DateTime? Deadline { get; set; }
     }
 }

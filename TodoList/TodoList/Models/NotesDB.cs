@@ -20,7 +20,6 @@ namespace TodoList.Models
         {
             database = new SQLiteAsyncConnection(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Notes.db3"));
             database.CreateTableAsync<Note>().Wait();
-
         }
         ~NotesDB()
         {

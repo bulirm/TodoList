@@ -37,6 +37,39 @@ namespace TodoList.ViewModels
             set { description = value; OnPropertyChanged(); }
         }
 
+        private DateTime? deadline;
+
+        /// <summary>
+        /// Deadline of note
+        /// </summary>
+        public DateTime? Deadline
+        {
+            get { return deadline; }
+            set { deadline = value; OnPropertyChanged(); }
+        }
+
+        private DateTime minDeadline;
+
+        /// <summary>
+        /// Minimal deadline
+        /// </summary>
+        public DateTime MinDeadline
+        {
+            get { return minDeadline; }
+            private set { minDeadline = value; OnPropertyChanged(); }
+        }
+
+        private bool deadlineEnable;
+
+        /// <summary>
+        /// Deadline of note
+        /// </summary>
+        public bool DeadlineEnable
+        {
+            get { return deadlineEnable; }
+            set { deadlineEnable = value; OnPropertyChanged(); }
+        }
+
         #endregion Properties
 
         public NoteViewModel()
@@ -47,6 +80,9 @@ namespace TodoList.ViewModels
             //init props
             Title = "";
             Description = "";
+            Deadline = DateTime.Now;
+            DeadlineEnable = false;
+            MinDeadline = DateTime.Now;
         }
 
         #region Commands
@@ -64,12 +100,28 @@ namespace TodoList.ViewModels
                 App.Current.MainPage.DisplayAlert("Input issue", "Title must not be empty!", "Ok");
                 return;
             }
+
+            //setup note model object
             Note note = new Note();
             note.Title = Title;
             note.Description = Description;
             note.Done = false;
+            if (DeadlineEnable)
+            {
+                note.Deadline = Deadline;
+            }
+            else
+            {
+                note.Deadline = null;
+            }
+
+            //reset props
             Title = "";
             Description = "";
+            Deadline = DateTime.Now;
+            DeadlineEnable = false;
+
+            //save note
             NotesContainer.AddNote(note);
         }
 

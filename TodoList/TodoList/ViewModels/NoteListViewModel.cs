@@ -30,7 +30,7 @@ namespace TodoList.ViewModels
             {
                 //create new list
                 List<NoteListItemViewModel> noteListItemViewModels = new List<NoteListItemViewModel>();
-                foreach (Note note in NotesContainer.Undone)
+                foreach (Note note in NotesContainer.UndoneOrdered)
                 {
                     //create and add viewmodel with model of note
                     NoteListItemViewModel noteListItemViewModel = new NoteListItemViewModel(note);

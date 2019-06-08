@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Text;
 
@@ -38,7 +39,24 @@ namespace TodoList.Models
                 return undone;
             }
         }
-        
+
+        /// <summary>
+        /// Returns ordered undone notes by deadline date.
+        /// Priority:
+        /// 1. early date
+        /// 2. late date
+        /// 3. no date
+        /// </summary>
+        public static IEnumerable<Note> UndoneOrdered
+        {
+            get
+            {
+                IEnumerable<Note> notes = undone.OrderBy(note => note.Deadline).Where(note => note.Deadline != null);
+                notes = notes.Select(note => note).Concat(undone.Where(note => note.Deadline == null));
+                return notes;
+            }
+        }
+
         public static async Task Initialize()
         {
             //Create access to Database
