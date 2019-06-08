@@ -8,15 +8,25 @@
         <viewModels:NoteListViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <ListView HasUnevenRows="True" CachingStrategy="RecycleElement" ItemsSource="{Binding NoteUndoneListItemViewModels}">
+        <ListView HasUnevenRows="True" SelectionMode="None" CachingStrategy="RecycleElement" ItemsSource="{Binding NoteUndoneListItemViewModels}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Margin="16">
-                            <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="Medium"/>
-                            <Button Text="Mark as done" Command="{Binding MarkAsDoneCommand}"/>
-                            <Button Text="Delete" Command="{Binding DeleteCommand}"/>
-                        </StackLayout>
+                        <Grid Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Title}" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium"/>
+                            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Description}"/>
+                            <Button Grid.Row="2" Grid.Column="1" Text="Mark as done" Command="{Binding MarkAsDoneCommand}"/>
+                            <Button Grid.Row="2" Grid.Column="0" Text="Delete" Command="{Binding DeleteCommand}"/>
+                        </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

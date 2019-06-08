@@ -74,10 +74,6 @@ namespace TodoList.Models
         {
             if (!note.Done)
             {
-                Task.Run(async () =>
-                {
-                    await notesDB.DeleteNoteAsync(note);
-                });
                 undone.Remove(note);
                 note.Done = true;
                 done.Add(note);
