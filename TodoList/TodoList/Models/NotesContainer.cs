@@ -53,6 +53,42 @@ namespace TodoList.Models
             Change();
         }
 
+        public static void DeleteNote(Note note)
+        {
+            Task.Run(async () =>
+            {
+                await notesDB.DeleteNoteAsync(note);
+            });
+            if (note.Done)
+            {
+                done.Remove(note);
+            }
+            else
+            {
+                undone.Remove(note);
+            }
+            Change();
+        }
+
+        public static void MarkAsDone(Note note)
+        {
+            if (!note.Done)
+            {
+                Task.Run(async () =>
+                {
+                    await notesDB.DeleteNoteAsync(note);
+                });
+                undone.Remove(note);
+                note.Done = true;
+                done.Add(note);
+                Task.Run(async () =>
+                {
+                    await notesDB.SaveNoteAsync(note);
+                });
+                Change();
+            }
+        }
+
         private static void Change()
         {
             OnChanged?.Invoke(new object(), new EventArgs());

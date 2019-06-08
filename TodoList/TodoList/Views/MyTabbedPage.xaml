@@ -6,6 +6,7 @@
             BarBackgroundColor="Black"
             BarTextColor="White">
     
-    <views:NoteListPage />
+    <views:NoteListPage/>
+    <views:NoteDoneListPage/>
     <views:NotePage/>
 </TabbedPage>

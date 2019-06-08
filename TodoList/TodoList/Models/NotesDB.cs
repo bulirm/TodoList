@@ -51,9 +51,9 @@ namespace TodoList.Models
             }
         }
 
-        public Task<int> DeleteNote(Note note)
+        public Task<int> DeleteNoteAsync(Note note)
         {
-            return database.DeleteAsync<Note>(note);
+            return database.DeleteAsync<Note>(note.ID);
         }
     }
 }

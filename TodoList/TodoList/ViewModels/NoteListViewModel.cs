@@ -18,7 +18,7 @@ namespace TodoList.ViewModels
 
         #region Properties
         
-        public List<NoteListItemViewModel> NoteListItemViewModels
+        public List<NoteListItemViewModel> NoteUndoneListItemViewModels
         {
             get
             {
@@ -32,30 +32,33 @@ namespace TodoList.ViewModels
             }
         }
 
+        public List<NoteListItemViewModel> NoteDoneListItemViewModels
+        {
+            get
+            {
+                List<NoteListItemViewModel> noteListItemViewModels = new List<NoteListItemViewModel>();
+                foreach (Note note in NotesContainer.Done)
+                {
+                    NoteListItemViewModel noteListItemViewModel = new NoteListItemViewModel(note);
+                    noteListItemViewModels.Add(noteListItemViewModel);
+                }
+                return noteListItemViewModels;
+            }
+        }
+
         #endregion Properties
 
         public NoteListViewModel()
         {
             NotesContainer.OnChanged += OnNoteAdded;
-            DisplayCommand = new Command(DisplayCommand_Execute);
         }
-
-        #region Commands
-        
-        public Command DisplayCommand { get; set; }
-
-        private void DisplayCommand_Execute(object parameter)
-        {
-            Debug.WriteLine("Ahoooj");
-        }
-
-        #endregion Commands
 
         #region Methods
 
         private void OnNoteAdded(object sender, EventArgs e)
         {
-            OnPropertyChanged("NoteListItemViewModels");
+            OnPropertyChanged("NoteUndoneListItemViewModels");
+            OnPropertyChanged("NoteDoneListItemViewModels");
         }
 
         #endregion Methods

@@ -1,20 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage Title="Undone" Icon="baseline_format_list_bulleted_white_18dp.png"
+<ContentPage Title="Done" Icon="baseline_format_list_bulleted_white_18dp.png"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:TodoList.ViewModels"
-             x:Class="TodoList.Views.NoteListPage">
+             x:Class="TodoList.Views.NoteDoneListPage">
     <ContentPage.BindingContext>
         <viewModels:NoteListViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <ListView HasUnevenRows="True" CachingStrategy="RecycleElement" ItemsSource="{Binding NoteUndoneListItemViewModels}">
+        <ListView HasUnevenRows="True" CachingStrategy="RecycleElement" ItemsSource="{Binding NoteDoneListItemViewModels}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Margin="16">
                             <Label Text="{Binding Title}" FontAttributes="Bold" FontSize="Medium"/>
-                            <Button Text="Mark as done" Command="{Binding MarkAsDoneCommand}"/>
                             <Button Text="Delete" Command="{Binding DeleteCommand}"/>
                         </StackLayout>
                     </ViewCell>
