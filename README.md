@@ -4,6 +4,7 @@
 * Programming language: C# Xamarin
 * IDE: Visual Studio 2017
 * Platform: Google Android
+* Purpose: School homework
 ## Description
 ### Expressions
 * _note_ - todo list item, which contains __Title__, Description and Deadline. Description and Deadline are optional.
@@ -22,5 +23,5 @@ TodoList is simple application for making _notes_. The _notes_ are displayed in 
 * No deadline
 ## Used technologies
 * Xamarin.Forms
-* SQLite - local database
+* SQLite – local database
 * C# .NET
